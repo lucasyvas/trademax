@@ -1,0 +1,7 @@
+node_modules/
+build/
+lcov-report/
+lcov.info
+.DS_Store
+.env
+*.log

@@ -1,0 +1,22 @@
+services:
+  converter:
+    profiles:
+      - all
+      - converter
+
+    image: trademax_converter
+    pull_policy: never
+    build:
+      dockerfile: converter/Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: production
+      CONVERTER_PORT: 3000
+      CONVERTER_FEATURE_SWAGGER: true
+    networks:
+      - trademax
+
+networks:
+  trademax:
+    external: true

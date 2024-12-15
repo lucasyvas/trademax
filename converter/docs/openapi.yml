@@ -1,0 +1,62 @@
+openapi: 3.0.3
+info:
+  title: Converter
+  version: "stable"
+servers:
+  - url: /api
+
+tags:
+  - name: Documents
+    description: |
+      A document can be converted to and from the supported types
+
+paths:
+  /v1/documents:
+    post:
+      tags:
+        - Documents
+      summary: Convert a document
+      operationId: documents_convert
+      requestBody:
+        $ref: "#/components/requestBodies/DocumentConvert"
+      responses:
+        200:
+          $ref: "#/components/responses/Document"
+        400:
+          $ref: "#/components/responses/BadRequest"
+
+components:
+  requestBodies:
+    DocumentConvert:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+        application/xml:
+          schema:
+            type: object
+        "application/vnd.trademax.txt; directives=c2VnbWVudGRlbGltPX4sZWxlbWVudGRlbGltPSo":
+          schema:
+            type: string
+
+  responses:
+    Document:
+      description: Document
+      headers:
+        X-Trademax-Error:
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+        application/xml:
+          schema:
+            type: object
+        "application/vnd.trademax.txt; directives=c2VnbWVudGRlbGltPX4sZWxlbWVudGRlbGltPSo":
+          schema:
+            type: string
+
+    BadRequest:
+      description: Bad Request

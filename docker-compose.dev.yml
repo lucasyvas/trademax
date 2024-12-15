@@ -1,0 +1,33 @@
+services:
+  converter:
+    profiles:
+      - all:dev
+      - converter:dev
+
+    image: trademax_converter
+    pull_policy: never
+    user: node
+    build:
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - .:/trademax
+    ports:
+      - 3000:3000
+      - 9229:9229
+    environment:
+      NODE_ENV: development
+      COMMAND: exec npm run converter:dev
+      CONVERTER_PORT: 3000
+      CONVERTER_FEATURE_SWAGGER: true
+    networks:
+      - trademax
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 5s
+      timeout: 1s
+      start_period: 90s
+      retries: 3
+
+networks:
+  trademax:
+    external: true

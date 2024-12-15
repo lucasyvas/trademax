@@ -1,0 +1,59 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Test (Current File)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runTestsByPath",
+        "${relativeFile}",
+        "--config",
+        "${workspaceFolder}/jest.config.ts",
+        "--testTimeout",
+        "999999"
+      ],
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**"],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Converter - Launch",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/converter",
+      "runtimeArgs": ["-r", "ts-node/register/transpile-only"],
+      "args": ["src/main.ts"],
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**"],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Converter - Attach (Host)",
+      "type": "node",
+      "request": "attach",
+      "address": "localhost",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/trademax",
+      "preLaunchTask": "compose-dev-up",
+      "timeout": 90000,
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**"],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Converter - Attach (Dev Container)",
+      "type": "node",
+      "request": "attach",
+      "address": "converter",
+      "port": 9229,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/trademax",
+      "internalConsoleOptions": "openOnSessionStart",
+      "skipFiles": ["<node_internals>/**"],
+      "outputCapture": "std"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "converter",
+  "version": "0.0.0",
+  "description": "Document Converter API",
+  "private": true,
+  "main": "src/main.ts",
+  "dependencies": {
+    "body-parser": "^1.20",
+    "express": "^4.21",
+    "helmet": "^8.0",
+    "js-yaml": "^4.1",
+    "swagger-ui-express": "^5.0",
+    "xml-js": "^1.6",
+    "zod": "^3.24"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0",
+    "@types/js-yaml": "^4.0",
+    "@types/node": "^22.10",
+    "@types/supertest": "^6.0",
+    "@types/swagger-ui-express": "^4.1",
+    "supertest": "^7.0"
+  },
+  "engines": {
+    "node": "22"
+  }
+}

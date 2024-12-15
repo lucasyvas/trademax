@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compose-dev-up",
+      "type": "shell",
+      "command": "make compose-dev-up",
+      "presentation": {
+        "close": true
+      }
+    }
+  ]
+}

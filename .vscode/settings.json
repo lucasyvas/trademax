@@ -1,0 +1,8 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "livePreview.portNumber": 9999,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

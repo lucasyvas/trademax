@@ -1,0 +1,15 @@
+# Paths are relative to the root project directory context
+
+*
+!.git/
+!converter/docs/openapi.yml
+!converter/node_modules/
+!converter/src/
+converter/src/**/fixtures
+converter/src/**/*.test.ts
+!converter/package-lock.json
+!converter/package.json
+!converter/tsconfig.json
+!package-lock.json
+!package.json
+!tsconfig.json

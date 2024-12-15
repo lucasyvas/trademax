@@ -1,0 +1,26 @@
+{
+  "dockerFile": "Dockerfile",
+  "containerUser": "node",
+  "initializeCommand": "make network-create",
+  "runArgs": ["--init", "--name=trademax_devcontainer", "--network=trademax"],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/trademax,type=bind",
+  "workspaceFolder": "/trademax",
+  "forwardPorts": [3000, 9229, 9999],
+  "postCreateCommand": "npm install",
+  "containerEnv": {
+    "NODE_ENV": "development",
+    "CONVERTER_PORT": "3000",
+    "CONVERTER_FEATURE_SWAGGER": "true"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "42crunch.vscode-openapi",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.live-server",
+        "redhat.vscode-yaml"
+      ]
+    }
+  }
+}

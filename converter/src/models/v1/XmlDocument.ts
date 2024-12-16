@@ -40,7 +40,7 @@ export default class XmlDocument extends Document {
               .sort(([aKey], [bKey]) => {
                 try {
                   const aKeySequence = Number(aKey.substring(aKey.indexOf(segment) + segment.length));
-                  const bKeySequence = Number(aKey.substring(bKey.indexOf(segment) + segment.length));
+                  const bKeySequence = Number(bKey.substring(bKey.indexOf(segment) + segment.length));
                   return aKeySequence - bKeySequence;
                 } catch (error) {
                   throw new ValidationError(`Invalid key sequence: ${JSON.stringify({ segment })}`);

@@ -6,6 +6,7 @@ const config: JestConfigWithTsJest = {
   preset: "ts-jest",
   collectCoverage: false,
   coverageReporters: ["text", "lcov"],
+  modulePathIgnorePatterns: ["build/"],
 };
 
 export default config;
